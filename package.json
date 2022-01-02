@@ -1,0 +1,40 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "A very simple and free URL shortener build with Node.js",
+  "author": "Victor Drumond",
+  "engines": {
+    "node": "17.x"
+  },
+  "main": "server.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "got": "^11.3.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victordrumond/url-shortener"
+  },
+  "bugs": {
+    "url": "https://github.com/victordrumond/url-shortener/issues"
+  },
+  "homepage": "",
+  "keywords": [
+    "node",
+    "express",
+    "mongoose",
+    "heroku"
+  ],
+  "license": "MIT"
+}
