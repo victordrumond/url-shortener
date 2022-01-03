@@ -1,1 +1,66 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div id="main-container" class="container">
+        <!--Title-->
+        <div id="title-container" class="">
+            <h1>URL Shortener</h1>
+            <p>A very simple and free URL shortener.</p>
+        </div>
+        <!--Main content-->
+        <div id="content-container">
+            <!--Input original URL-->
+            <form action="/shorturl" method="POST" class="form-inline mb-2">
+                <label for="originalURL" class="mr-2 sr-only">Enter URL:</label>
+                <input
+                    id="input"
+                    type="url"
+                    name="originalURL"
+                    placeholder="Enter URL to shorten"
+                    class="form-control mr-2"
+                    <% if (found.length !== 0) { %>
+                        value="<%= found[0].original %>"
+                    <% } %>
+                    required
+                />
+                <button type="submit" class="btn btn-primary">Shorten</button>
+            </form>
+            <!--Get shortened URL-->
+            <% if (found.length !== 0) { %>
+                <form action="" method="" class="form-inline mb-2">
+                    <label for="shortenedURL" class="mr-2 sr-only">Shortened URL:</label>
+                    <input
+                        id="output"
+                        type="url"
+                        name="shortenedURL"
+                        value="<%= found[0].shortened %>"
+                        class="form-control mr-2"
+                    />
+                    <button type="button" class="btn btn-success" onclick="copyToClickboard()">Copy</button>
+                </form>
+            <% } %>
+        </div>
+        <!--Footer-->
+        <div id="fotter-container">
+
+        </div>
+    </div>
+
+    <script>
+        // Copy to clickboard function
+        function copyToClickboard () {
+            let text = document.getElementById("output");
+            text.select(); 
+            text.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(text.value);
+        };
+    </script>
+</body>
+</html>
