@@ -12,25 +12,23 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
-    "mongoose": "^6.1.4",
-    "shortid": "^2.2.16",
-    "dotenv": "^8.2.0"
+    "generate-unique-id": "^2.0.1",
+    "mongoose": "^6.1.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15",
     "got": "^11.3.0",
+    "nodemon": "^2.0.15",
     "tape": "^4.7.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/victordrumond/url-shortener"
   },
-  "bugs": {
-    "url": "https://github.com/victordrumond/url-shortener/issues"
-  },
-  "homepage": "",
+  "homepage": "http://vdurl.herokuapp.com",
   "keywords": [
     "node",
     "express",
