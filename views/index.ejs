@@ -5,14 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css"/>
 </head>
 <body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;300;400;500;600;700&display=swap');
+        body {
+	        font-family: 'Encode Sans', sans-serif;
+	        color: black;
+	        background: linear-gradient(0deg, #ADADAD, #FFFFFF) fixed;
+        }
+        #title-container {
+            margin: 6rem 0 4rem;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: 600;
+            padding: 0.5rem 0;
+        }
+        p {
+            font-size: 17px;
+            line-height: 2;
+            margin: 0.25rem 0;
+        }
+        #content-container {
+            margin: 2rem 0;
+        }
+        #input, #output {
+            width: 375px;
+            margin-right: 0.5rem;
+        }
+        button {
+            width: 100px;
+        }
+        #info-container {
+            margin: 4rem 0;
+        }
+        @media (max-width: 575px) {
+            #title-container {
+                margin: 3rem 0 2rem;
+            }
+            p {
+                font-size: 16px;
+            }
+            #info-container {
+                margin: 2rem 0;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            #input, #output, button {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    </style>
+    
     <div id="main-container" class="container">
         <!--Title-->
-        <div id="title-container" class="">
+        <div id="title-container">
             <h1>URL Shortener</h1>
-            <p>A very simple and free URL shortener.</p>
+            <p>A simple and free URL shortener</p>
         </div>
         <!--Main content-->
         <div id="content-container">
@@ -24,7 +80,7 @@
                     type="url"
                     name="originalURL"
                     placeholder="Enter URL to shorten"
-                    class="form-control mr-2"
+                    class="form-control"
                     <% if (found.length !== 0) { %>
                         value="<%= found[0].original %>"
                     <% } %>
@@ -40,16 +96,28 @@
                         id="output"
                         type="url"
                         name="shortenedURL"
-                        value="<%= found[0].shortened %>"
-                        class="form-control mr-2"
+                        value="http://vdurl.herokuapp.com/<%= found[0].shortened %>"
+                        class="form-control"
                     />
                     <button type="button" class="btn btn-success" onclick="copyToClickboard()">Copy</button>
                 </form>
             <% } %>
+            <!--Information-->
+            <div id="info-container">
+                <p>
+                    This project was inspired by a back end challenge from
+                    <a href="https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/url-shortener-microservice" target="_blank">freeCodeCamp</a>.
+                </p>
+                <p>Built with Node.js and Bootstrap. Using Express, MongoDB Atlas and Mongoose.</p>
+                <p>
+                    For more information please visit this project's repository on
+                    <a href="https://github.com/victordrumond/url-shortener" target="_blank">GitHub</a>.
+                </p>
+            </div>
         </div>
         <!--Footer-->
         <div id="fotter-container">
-
+            <p>&#169; 2022 URL Shortener | A project by Victor</p>
         </div>
     </div>
 
